@@ -1,4 +1,4 @@
-CREATE TABLE groceries (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, aisle INTEGER, price INTEGER);
+CREATE TABLE groceries (id INTEGER PRIMARY KEY, item TEXT, quantity INTEGER, aisle INTEGER, price INTEGER);
 
 INSERT INTO groceries VALUES (1, "Bananas", 49, 7, .25);
 INSERT INTO groceries VALUES(2, "Peanut Butter", 13, 2, 1.79);
@@ -16,5 +16,21 @@ INSERT INTO groceries VALUES(13, "dish_soap", 210, 16, 3.99);
 INSERT INTO groceries VALUES(14, "bleach", 60, 16, 2);
 INSERT INTO groceries VALUES(15, "laundry_detergent", 49, 16, 13.49);
 
+--display the database ordered by price.
 SELECT * FROM groceries ORDER BY price;
+
+--display the data  base sum quantity.
 SELECT SUM(quantity) FROM groceries;
+
+--what is the avg price of items in groceries? 
+SELECT AVG(price) "avg groceries item price"
+FROM store
+where section='groceries';
+
+--what are the 5 most expensive items? 
+SELECT item, quantity, price
+FROM groceries
+order by price desc
+limit 5; 
+
+
